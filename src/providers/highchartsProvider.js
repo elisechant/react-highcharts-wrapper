@@ -1,14 +1,17 @@
 
-import {Component, Children} from 'react';
+import React, {Component, Children} from 'react';
 import PropTypes from 'prop-types';
+import Highcharts from 'highcharts';
+
 
 class HighchartsProvider extends Component {
   // get the service/data
   getChildContext() {
+    // todo - consume this.props.config
     return {
       // if someone down the element tree needs our context data
       // this reference will be called
-      Highcharts: this.props.Highcharts  // todo - include from Here ! or optionally from app
+      'Highcharts': this.props.Highcharts || Highcharts
     };
   }
 	render() {

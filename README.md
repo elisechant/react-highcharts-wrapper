@@ -11,6 +11,15 @@ Reactify Highcharts the right way.
 
 2. Highcharts depends on the DOM existing to render.
 
+3. Rehydrating Highcharts in the React view rerendering paradigm 
+
+
+## How does the library solve these 
+
+1. HighchartsProvider and withHighcharts
+
+2.3. AbstractWidget component
+
 
 ## Getting started
 

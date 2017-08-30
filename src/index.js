@@ -2,17 +2,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import HighchartsProvider from "./providers/highchartsProvider";
-import Highcharts from 'highcharts';
 
 import BarChart from './components/barChart';
-import DonutChart  from './components/donutChart';
+import PieChart  from './components/pieChart';
 
 const ExampleApp = () => {
   return (
-    <HighchartsProvider Highcharts={Highcharts}>
+    <HighchartsProvider config={{}}>
       <div>
         <BarChart />
-        <DonutChart />
+        <PieChart />
       </div>
     </HighchartsProvider>
   )

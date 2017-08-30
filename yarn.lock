@@ -3308,7 +3308,7 @@ he@1.1.x:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/he/-/he-1.1.1.tgz#93410fd21b009735151f8868c2f271f3427e23fd"
 
-highcharts@^5.0.14:
+highcharts@>=5:
   version v5.0.14
   resolved "https://registry.yarnpkg.com/highcharts/-/highcharts-5.0.14.tgz#0ef14cca9f1345408568b533dae1478950d96810"
 
@@ -5746,7 +5746,7 @@ react-docgen@^3.0.0-beta5:
     node-dir "^0.1.10"
     recast "^0.12.6"
 
-"react-dom@^15 || ^16":
+react-dom@>=15, "react-dom@^15 || ^16":
   version "15.6.1"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-15.6.1.tgz#2cb0ed4191038e53c209eb3a79a23e2a4cf99470"
   dependencies:
@@ -5888,7 +5888,7 @@ react-styleguidist@^6.0.21:
     webpack-merge "^4.1.0"
     webpage "^0.3.0"
 
-"react@^15 || ^16":
+react@>=15, "react@^15 || ^16":
   version "15.6.1"
   resolved "https://registry.yarnpkg.com/react/-/react-15.6.1.tgz#baa8434ec6780bde997cdc380b79cd33b96393df"
   dependencies:
@@ -5964,6 +5964,10 @@ readdirp@^2.0.0:
     minimatch "^3.0.2"
     readable-stream "^2.0.2"
     set-immediate-shim "^1.0.1"
+
+readline-sync@^1.4.7:
+  version "1.4.7"
+  resolved "https://registry.yarnpkg.com/readline-sync/-/readline-sync-1.4.7.tgz#001bfdd4c06110c3c084c63bf7c6a56022213f30"
 
 recast@0.11.12:
   version "0.11.12"
@@ -7313,6 +7317,33 @@ webpack-sources@^1.0.1:
 webpack@3.5.1:
   version "3.5.1"
   resolved "https://registry.yarnpkg.com/webpack/-/webpack-3.5.1.tgz#b749ee3d2b5a118dad53e8e41585b3f71e75499a"
+  dependencies:
+    acorn "^5.0.0"
+    acorn-dynamic-import "^2.0.0"
+    ajv "^5.1.5"
+    ajv-keywords "^2.0.0"
+    async "^2.1.2"
+    enhanced-resolve "^3.4.0"
+    escope "^3.6.0"
+    interpret "^1.0.0"
+    json-loader "^0.5.4"
+    json5 "^0.5.1"
+    loader-runner "^2.3.0"
+    loader-utils "^1.1.0"
+    memory-fs "~0.4.1"
+    mkdirp "~0.5.0"
+    node-libs-browser "^2.0.0"
+    source-map "^0.5.3"
+    supports-color "^4.2.1"
+    tapable "^0.2.7"
+    uglifyjs-webpack-plugin "^0.4.6"
+    watchpack "^1.4.0"
+    webpack-sources "^1.0.1"
+    yargs "^8.0.2"
+
+webpack@^3.5.5:
+  version "3.5.5"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-3.5.5.tgz#3226f09fc8b3e435ff781e7af34f82b68b26996c"
   dependencies:
     acorn "^5.0.0"
     acorn-dynamic-import "^2.0.0"

@@ -1,6 +1,6 @@
 {
   "name": "react-highcharts-wrapper",
-  "version": "0.0.10-development",
+  "version": "0.0.12-development",
   "description": "React and Highcharts the right way.",
   "main": "lib/ReactHighchartsWrapper.js",
   "license": "MIT",

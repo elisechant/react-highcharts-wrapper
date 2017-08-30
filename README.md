@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/beestripes/react-highcharts-wrapper.svg?branch=master&)](https://travis-ci.org/beestripes/react-highcharts-wrapper)
 
-Reactify Highcharts the right way.
+React and Highcharts the right way.
 
 
 ## Problems this library sets out to solve

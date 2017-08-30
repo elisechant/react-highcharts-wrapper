@@ -45,7 +45,7 @@ class BarChart extends PureComponent {
   render() {
     return (
       <div>
-        <h1>Bar Chart</h1>
+        <h1>Bar Chart with toggleable series</h1>
 
         <button onClick={this.toggleSeries.bind(this)}>Toggle series</button>
 

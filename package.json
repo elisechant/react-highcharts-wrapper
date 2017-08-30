@@ -1,6 +1,6 @@
 {
   "name": "react-highcharts-wrapper",
-  "version": "0.0.9-development",
+  "version": "0.0.10-development",
   "description": "Reactify Highcharts the right way.",
   "main": "lib/ReactHighcharts.js",
   "license": "MIT",
@@ -28,7 +28,6 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
-    "highcharts": "^5.0.14",
     "prop-types": "^15.5.10",
     "react-scripts": "1.0.12"
   },
@@ -38,6 +37,9 @@
     "react-dom": "^15.6.1"
   },
   "devDependencies": {
+    "highcharts": "^5.0.14",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
     "babel-cli": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",

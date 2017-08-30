@@ -25,10 +25,10 @@
     "build:lib": "babel src/ -d lib --source-maps --copy-files",
     "test": "react-scripts test --env=jsdom",
     "test:ci": "yarn run test -- --coverage --runInBand",
-    "eject": "react-scripts eject",
-    "prepublish": "yarn run build:lib"
+    "eject": "react-scripts eject"
   },
   "dependencies": {
+    "highcharts": "^5.0.14",
     "prop-types": "^15.5.10",
     "react-scripts": "1.0.12"
   },

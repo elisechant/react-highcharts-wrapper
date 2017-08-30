@@ -40,10 +40,7 @@ class AbstractChart extends PureComponent {
   }
 
   componentWillUpdate(nextProps) {
-    // manual rehydrate only if props update
-    if (JSON.stringify(this.props) !== JSON.stringify(nextProps)) {
-      this._update(nextProps);
-    }
+    this._update(nextProps);
   }
 
   componentWillUnmount() {

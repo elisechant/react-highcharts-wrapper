@@ -1,6 +1,6 @@
 {
   "name": "react-highcharts-wrapper",
-  "version": "0.0.8-development",
+  "version": "0.0.9-development",
   "description": "Reactify Highcharts the right way.",
   "main": "lib/ReactHighcharts.js",
   "license": "MIT",
@@ -24,8 +24,9 @@
     "prebuild:lib": "yarn clean:lib",
     "build:lib": "babel src/ -d lib --source-maps --copy-files",
     "test": "react-scripts test --env=jsdom",
-    "test:ci": "npm run test -- --coverage --runInBand",
-    "eject": "react-scripts eject"
+    "test:ci": "yarn run test -- --coverage --runInBand",
+    "eject": "react-scripts eject",
+    "prepublish": "yarn run build:lib"
   },
   "dependencies": {
     "prop-types": "^15.5.10",

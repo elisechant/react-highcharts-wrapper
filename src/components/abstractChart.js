@@ -11,17 +11,43 @@ class AbstractChart extends PureComponent {
     this._instance = null;
   }
 
-  componentDidMount() {
-    const {Highcharts, config} = this.props;
+  _create(nextProps = null) {
+    const {Highcharts, config} = nextProps || this.props;
+    if (!config.chart) {
+      config.chart = {};
+    }
     config.chart.renderTo = this.chartEl;
     this._instance = new Highcharts.chart(config);
+    return this._instance;
   }
 
-  componentWillUnmount() {
+  // "update" by destroying then recreating the chart instance
+  _update(nextProps) { // redraw
+    this._destroy();
+    this._create(nextProps);
+    return this._instance;
+  }
+
+  _destroy() {
     if (this._instance) {
       this._instance.destroy();
       this._instance = null;
     }
+  }
+
+  componentDidMount() {
+    this._create();
+  }
+
+  componentWillUpdate(nextProps) {
+    // manual rehydrate only if props update
+    if (JSON.stringify(this.props) !== JSON.stringify(nextProps)) {
+      this._update(nextProps);
+    }
+  }
+
+  componentWillUnmount() {
+    this._destroy();
   }
 
   render() {

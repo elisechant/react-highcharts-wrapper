@@ -1,5 +1,6 @@
 
 import React, {PureComponent} from 'react';
+import PropTypes from 'prop-types';
 
 import withHighcharts from './../hocs/withHighcharts';
 
@@ -53,6 +54,10 @@ class AbstractChart extends PureComponent {
     )
   }
 }
+
+AbstractChart.propTypes = {
+  Highcharts: PropTypes.object.isRequired,  // supplied from Provider
+};
 
 const ConnectedChart = withHighcharts(AbstractChart);
 

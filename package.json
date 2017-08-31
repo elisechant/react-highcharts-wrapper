@@ -1,7 +1,7 @@
 {
   "name": "react-highcharts-wrapper",
   "version": "0.0.12-development",
-  "description": "React and Highcharts the right way.",
+  "description": "A wrapper for building charts with Highcharts and React.",
   "main": "lib/ReactHighchartsWrapper.js",
   "license": "MIT",
   "repository": "git+https://github.com/beestripes/react-highcharts-wrapper.git",
@@ -21,17 +21,18 @@
   "bugs": {
     "url": "https://github.com/beestripes/react-highcharts-wrapper/issues"
   },
-  "homepage": "https://github.com/beestripes/react-highcharts-wrapper#readme",
+  "homepage": "https://react-highcharts-wrapper.firebaseapp.com",
   "scripts": {
     "clean:lib": "rm -rf lib",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "prebuild:lib": "yarn clean:lib",
-    "build:lib": "babel src/ --out-dir lib --source-maps --ignore test.js",
+    "build:lib": "babel src/ --out-dir lib --source-maps --ignore test.js,example/,index.js",
     "test": "react-scripts test --env=jsdom",
     "test:ci": "yarn run test -- --coverage --runInBand",
     "eject": "react-scripts eject",
-    "prepublishOnly": "yarn run build:lib"
+    "prepublishOnly": "yarn run build:lib",
+    "deploy": "firebase deploy"
   },
   "dependencies": {
     "prop-types": "^15.5.10"
@@ -50,8 +51,6 @@
     "react": ">=15",
     "react-dom": ">=15",
     "react-scripts": "1.0.12",
-    "react-styleguidist": "^6.0.21",
-    "readline-sync": "^1.4.7",
     "webpack": "^3.5.5"
   }
 }

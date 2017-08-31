@@ -3,8 +3,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import HighchartsProvider from "./providers/highchartsProvider";
 
-import BarChart from './components/barChart';
-import PieChart  from './components/pieChart';
+import BarChart from './example/components/barChart';
+import PieChart  from './example/components/pieChart';
 
 const ExampleApp = () => {
   return (

@@ -1,7 +1,7 @@
 
 import React, {PureComponent} from 'react';
 
-import AbstractChart from './abstractChart';
+import AbstractChart from '../../components/abstractChart';
 
 
 const data = {
@@ -58,15 +58,15 @@ class BarChart extends PureComponent {
           },
           xAxis: {
             categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania'],
-            title: {
+              title: {
               text: null
             }
           },
           yAxis: {
             min: 0,
-            title: {
+              title: {
               text: 'Population (millions)',
-              align: 'high'
+                align: 'high'
             },
           },
           credits: {
@@ -75,7 +75,7 @@ class BarChart extends PureComponent {
           series: data[this.state.currentSeries],
         }} />
       </div>
-    );
+    )
   }
 }
 

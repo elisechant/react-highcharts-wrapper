@@ -1,7 +1,7 @@
 
 import React from 'react';
 
-import AbstractChart from './abstractChart';
+import AbstractChart from '../../components/abstractChart';
 
 
 const PieChart = () => {

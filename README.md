@@ -7,7 +7,9 @@ A wrapper for building charts with Highcharts and React.
 
 ## Who is this library for? 
 
-Anyone wanting to be immediately productive using Highcharts in React. 
+Anyone wanting to be productive with Highcharts in React.
+
+Render React components with 1:1 Highcharts config API. 
 
 
 ## Demo (wip)

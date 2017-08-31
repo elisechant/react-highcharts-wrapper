@@ -1,6 +1,6 @@
 {
   "name": "react-highcharts-wrapper",
-  "version": "0.0.12-development",
+  "version": "0.0.2",
   "description": "A wrapper for building charts with Highcharts and React.",
   "main": "lib/ReactHighchartsWrapper.js",
   "license": "MIT",
@@ -32,6 +32,7 @@
     "test:ci": "yarn run test -- --coverage --runInBand",
     "eject": "react-scripts eject",
     "prepublishOnly": "yarn run build:lib",
+    "predeploy": "yarn run build",
     "deploy": "firebase deploy"
   },
   "dependencies": {

@@ -23,9 +23,11 @@ class HighchartsProvider extends Component {
       'Highcharts': _Highcharts
     };
   }
+
 	render() {
 		return Children.only(this.props.children)
 	}
+
 }
 
 // tell React _what_ it provides

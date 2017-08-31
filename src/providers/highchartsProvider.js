@@ -5,13 +5,22 @@ import Highcharts from 'highcharts';
 
 
 class HighchartsProvider extends Component {
+
   // get the service/data
   getChildContext() {
-    // todo - consume this.props.config
+    const {executeFuncs} = this.props;
+
+    const _Highcharts = Highcharts;
+
+    if (typeof executeFuncs !== 'undefined' && Array.isArray(executeFuncs) && executeFuncs.length) {
+      executeFuncs.map(f => {
+        return f(_Highcharts);
+      });
+    }
     return {
       // if someone down the element tree needs our context data
       // this reference will be called
-      'Highcharts': this.props.Highcharts || Highcharts
+      'Highcharts': _Highcharts
     };
   }
 	render() {
@@ -22,6 +31,14 @@ class HighchartsProvider extends Component {
 // tell React _what_ it provides
 HighchartsProvider.childContextTypes = {
   Highcharts: PropTypes.object,
+};
+
+HighchartsProvider.defaultProps = {
+  executeFuncs: [],
+};
+
+HighchartsProvider.propTypes = {
+  executeFuncs: PropTypes.arrayOf(PropTypes.func),
 };
 
 export default HighchartsProvider;

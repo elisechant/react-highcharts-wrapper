@@ -8,7 +8,11 @@ import PieChart  from './example/components/pieChart';
 
 const ExampleApp = () => {
   return (
-    <HighchartsProvider config={{}}>
+    <HighchartsProvider executeFuncs={[
+      (Highcharts) => {
+        console.log(Highcharts)
+      }
+    ]}>
       <div>
         <BarChart />
         <PieChart />

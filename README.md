@@ -5,10 +5,14 @@
 A wrapper for building charts with Highcharts and React.
 
 
+## Who is this library for? 
+
+Anyone wanting to be immediately productive using Highcharts in React. 
+
+
 ## Demo (wip)
 
 [https://react-highcharts-wrapper.firebaseapp.com](https://react-highcharts-wrapper.firebaseapp.com)
- 
 
 
 ## Problems this library solves
@@ -57,7 +61,7 @@ const App = () => {
 This will make Highcharts available to context.
 
 
-3. Build the chart components you need with `AbstractChart` and passing in 
+3. Build the chart components you need with `AbstractChart` passing in 
 a standard Highcharts configuration object. 
 
 
@@ -111,3 +115,39 @@ const MyPage = () => {
  
  
 ## Done! 🏁
+
+
+
+## Optional: How can I extend Highcharts primitive?
+
+You can pass an array of executable functions to `HighchartsProvider` like this: 
+
+```
+<HighchartsProvider executeFuncs={[
+  (Highcharts) => {
+    console.log(Highcharts)
+    return Highcharts;
+  }
+]}>
+```
+
+This can be useful for setting a default theme for example for Highcharts:
+
+```
+const HIGHCHARTS_THEME = {
+  chart: {
+    style: {
+      fontFamily: 'Open Sans,sans-serif',
+    },
+  },
+}
+
+<HighchartsProvider executeFuncs={[
+  (Highcharts) => {
+    Highcharts.setOptions({
+      ...HIGHCHARTS_THEME
+    });
+    return Highcharts;
+  }
+]}>
+```

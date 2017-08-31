@@ -36,12 +36,12 @@ Render React components with 1:1 Highcharts config API.
 
 ## Getting started
 
-1. Add the module to your React app:
+### 1. Add the module to your React app:
 
 `npm install react-highcharts-wrapper`
 
 
-2. Wrap your app with `HighchartsProvider`.
+### 2. Wrap your app with `HighchartsProvider`.
 
 
 app.js
@@ -63,8 +63,8 @@ const App = () => {
 This will make Highcharts available to context.
 
 
-3. Build the chart components you need with `AbstractChart` passing in 
-a standard Highcharts configuration object. 
+### 3. Build the chart components you need with `AbstractChart` 
+passing in a standard Highcharts configuration object. 
 
 
 components/myPieChart.js
@@ -98,7 +98,7 @@ const MyPieChart = () => {
 ``` 
 
 
-4. Consume the charts like any other component 
+### 4. Consume the charts like any other component 
 
 
 components/myPage.js
@@ -120,7 +120,7 @@ const MyPage = () => {
 
 
 
-## Optional: How can I extend Highcharts primitive?
+### Optional: How can I extend the Highcharts primitive?
 
 You can pass an array of executable functions to `HighchartsProvider` like this: 
 
@@ -149,6 +149,10 @@ const HIGHCHARTS_THEME = {
     Highcharts.setOptions({
       ...HIGHCHARTS_THEME
     });
+    return Highcharts;
+  },
+  (Highcharts) => {
+    Highcharts.loremIpsum = 'boo ya!';
     return Highcharts;
   }
 ]}>

@@ -69,9 +69,6 @@ class BarChart extends PureComponent {
                 align: 'high'
             },
           },
-          credits: {
-            enabled: false
-          },
           series: data[this.state.currentSeries],
         }} />
       </div>

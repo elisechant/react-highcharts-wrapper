@@ -1,10 +1,12 @@
 # React Highcharts Wrapper
 
+[![npm version](https://badge.fury.io/js/react-highcharts-wrapper.svg)](https://badge.fury.io/js/react-highcharts-wrapper)
+
 [![Build Status](https://travis-ci.org/beestripes/react-highcharts-wrapper.svg?branch=master&)](https://travis-ci.org/beestripes/react-highcharts-wrapper)
 
 A React wrapper for building Highcharts components.
 
-*Render React components with 1:1 Highcharts config API*. 
+Provides the Highcharts primitive to your application the right way, and then render all of your React Highcharts components with Highchart's config API.   
 
 
 ## Who is this library for? 

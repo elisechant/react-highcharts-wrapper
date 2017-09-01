@@ -7,7 +7,7 @@ const withHighcharts = Composed => {
   const C = (props, context) => {
 
     if (typeof context.Highcharts !== 'object' || !context.Highcharts) {
-      throw new Error('context.Highcharts must be provided to withHighcharts');
+      throw new Error(`Check that you've included HighchartsProvider.`);
     }
 
     const newProps = {

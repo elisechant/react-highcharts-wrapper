@@ -2,14 +2,14 @@
 
 [![Build Status](https://travis-ci.org/beestripes/react-highcharts-wrapper.svg?branch=master&)](https://travis-ci.org/beestripes/react-highcharts-wrapper)
 
-A wrapper for building charts with Highcharts and React.
+A React wrapper for building Highcharts components.
+
+*Render React components with 1:1 Highcharts config API*. 
 
 
 ## Who is this library for? 
 
 Anyone wanting to be productive with Highcharts in React.
-
-Render React components with 1:1 Highcharts config API. 
 
 
 ## Demo (wip)
@@ -17,7 +17,7 @@ Render React components with 1:1 Highcharts config API.
 [https://react-highcharts-wrapper.firebaseapp.com](https://react-highcharts-wrapper.firebaseapp.com)
 
 
-## Problems this library solves
+## The problem
 
 1. Highcharts does not translate to the ES6+ ecosystem, as the Highcharts constructor is global. Therefore, you can not apply application wide configuration to Highcharts without attaching it to window.
 
@@ -26,7 +26,7 @@ Render React components with 1:1 Highcharts config API.
 3. Rehydrating Highcharts in the React view re-rendering paradigm is not native to Highcharts. 
 
 
-## How does the library solve these problems
+## The solution
 
 1. Wraps your application with Highcharts using `HighchartsProvider`.
    And then consumes the Highcharts constructor internally with a higher order component `withHighcharts`

@@ -8,6 +8,28 @@ A React wrapper for building Highcharts components.
 
 Provides the Highcharts primitive to your application the right way, and then render all of your React Highcharts components with Highchart's config API.   
 
+## TLDR
+
+app.js
+```
+render() (
+  <HighchartsProvider executeFuncs={[]}>  // [optional] array of functions to decorate window.Highcharts
+    <App />
+  </HighchartsProvider>
+)
+```
+
+chart.js
+```
+render() (
+  <AbstractChart config={{  // any Highcharts config object here
+    chart: {
+      type: 'pie'
+    }
+  }} />
+)
+```
+
 
 ## Who is this library for? 
 

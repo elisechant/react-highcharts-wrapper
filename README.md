@@ -16,16 +16,28 @@ Anyone wanting to be productive with Highcharts in React.
 
 ## Demo
 
+Try it:
+
+[Open this repo in Codesandbox](https://codesandbox.io/s/20lmomm0n0)
+
+
+Official examples: 
+
+[coming soon]
+
+
+Pitch site:  
+
 [https://react-highcharts-wrapper.firebaseapp.com](https://react-highcharts-wrapper.firebaseapp.com)
 
 
 ## The problem
 
-1. Highcharts does not translate to the ES6+ ecosystem, as the Highcharts constructor is global. Therefore, you can not apply application wide configuration to Highcharts without attaching it to window.
+1. Highcharts does not translate to the ES6+ ecosystem, as the Highcharts constructor is global you can not apply application wide configuration to Highcharts without attaching it to window.
 
 2. Highcharts depends on the DOM existing to render.
 
-3. Rehydrating Highcharts in the React view re-rendering paradigm is not native to Highcharts. 
+3. Rehydrating Highcharts in the React view re-rendering paradigm is not native for Highcharts. 
 
 
 ## The solution
@@ -33,7 +45,7 @@ Anyone wanting to be productive with Highcharts in React.
 1. Wraps your application with Highcharts using `HighchartsProvider`.
    And then consumes the Highcharts constructor internally with a higher order component `withHighcharts`
 
-2.3. Render widgets like normal, by passing in any `config` as props to `AbstractChart` component
+2.3. Render charts and manage their lifecycle with a helper component `AbstractChart`, passing in normal Highcharts `config` as props.
 
 
 ## Getting started
@@ -121,8 +133,7 @@ const MyPage = () => {
 ## Done! 🏁
 
 
-
-### Optional: How can I extend the Highcharts primitive?
+## Optional: How can I extend the Highcharts primitive?
 
 You can pass an array of executable functions to `HighchartsProvider` like this: 
 
@@ -158,4 +169,4 @@ const HIGHCHARTS_THEME = {
     return Highcharts;
   }
 ]}>
-```
+``` 

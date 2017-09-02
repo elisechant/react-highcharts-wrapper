@@ -20,7 +20,8 @@
     "dataviz",
     "react",
     "react highcharts",
-    "highcharts react"
+    "highcharts react",
+    "react-component"
   ],
   "author": "Elise Chant <elise.chant@gmail.com>",
   "bugs": {

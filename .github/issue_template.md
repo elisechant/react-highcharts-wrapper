@@ -1,11 +1,20 @@
-#### Expected behaviour
+Relevant code or config
+
+```javascript
+
+```
+
+What you did:
 
 
-#### Actual behaviour
+
+What happened:
 
 
-#### Live demo or steps to reproduce
+Reproduction repository:
 
 
-#### Affected browser(s)
+Problem description:
 
+
+Suggested solution:

@@ -14,7 +14,7 @@ Provides the Highcharts primitive to your application the right way, and then re
 Anyone wanting to be productive with Highcharts in React.
 
 
-## Demo (wip)
+## Demo
 
 [https://react-highcharts-wrapper.firebaseapp.com](https://react-highcharts-wrapper.firebaseapp.com)
 

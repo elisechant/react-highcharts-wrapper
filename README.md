@@ -43,9 +43,9 @@ Try it:
 [Open this repo in Codesandbox](https://codesandbox.io/s/20lmomm0n0)
 
 
-Official examples: 
+Examples: 
 
-[coming soon]
+[https://react-highcharts-wrapper-demos.firebaseapp.com](https://react-highcharts-wrapper-demos.firebaseapp.com)
 
 
 Pitch site:  

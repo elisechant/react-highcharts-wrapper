@@ -35,11 +35,13 @@
     "prebuild:lib": "yarn clean:lib",
     "build:lib": "babel src/ --out-dir lib --source-maps --ignore test.js,example/,index.js",
     "test": "react-scripts test --env=jsdom",
-    "test:ci": "yarn run test -- --coverage --runInBand",
+    "test:ci": "yarn test -- --coverage --runInBand",
     "eject": "react-scripts eject",
-    "prepublishOnly": "yarn run build:lib",
-    "start:storybook": "start-storybook -p 9009 -c examples/.storybook -s examples/public",
-    "build:storybook": "build-storybook -c examples/.storybook -s examples/public"
+    "prepublishOnly": "yarn build:lib",
+    "start:storybook": "yarn run build:lib && start-storybook -p 9009 -c examples/.storybook -s examples/public",
+    "build:storybook": "yarn run build:lib && build-storybook -c examples/.storybook -s examples/public",
+    "predeploy": "yarn build:storybook",
+    "deploy": "firebase deploy"
   },
   "dependencies": {},
   "peerDependencies": {

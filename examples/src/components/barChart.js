@@ -1,7 +1,7 @@
 
 import React, {PureComponent} from 'react';
 
-import AbstractChart from '../../components/abstractChart';
+import {AbstractChart} from 'react-highcharts-wrapper';
 
 
 const data = {

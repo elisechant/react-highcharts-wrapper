@@ -1,7 +1,6 @@
 
 import React from 'react';
 import {storiesOf} from '@storybook/react';
-import {withInfo} from '@storybook/addon-info';
 
 import {HighchartsProvider, AbstractChart} from 'react-highcharts-wrapper';
 

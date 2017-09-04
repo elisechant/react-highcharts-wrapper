@@ -4,6 +4,9 @@
 
 [![Build Status](https://travis-ci.org/beestripes/react-highcharts-wrapper.svg?branch=master&)](https://travis-ci.org/beestripes/react-highcharts-wrapper)
 
+[![codecov](https://codecov.io/gh/beestripes/react-highcharts-wrapper/branch/master/graph/badge.svg)](https://codecov.io/gh/beestripes/react-highcharts-wrapper)
+
+
 A React wrapper for building Highcharts components.
 
 Provides the Highcharts primitive to your application the right way, and then render all of your React Highcharts components with Highchart's config API.   

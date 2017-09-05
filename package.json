@@ -63,6 +63,7 @@
     "expect": "^1.20.2",
     "highcharts": ">=5",
     "jsdom": "^11.2.0",
+    "prop-types": ">=15",
     "react": ">=15",
     "react-dom": ">=15",
     "react-scripts": "1.0.12",

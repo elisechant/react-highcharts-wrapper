@@ -2,6 +2,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import makeHighchartsApi from "../services/highchartsApi";
+
 
 const withHighcharts = Composed => {
 
@@ -13,6 +15,8 @@ const withHighcharts = Composed => {
 
     const newProps = {
       ...props,
+      service: makeHighchartsApi(context.Highcharts),
+
       Highcharts: context.Highcharts,
     };
     return <Composed {...newProps} />

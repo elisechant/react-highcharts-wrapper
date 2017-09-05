@@ -7,45 +7,16 @@ import withHighcharts from './../hocs/withHighcharts';
 
 class AbstractChart extends PureComponent {
 
-  constructor(props) {
-    super(props);
-    this._instance = null;
-  }
-
-  _create(nextProps = null) {
-    const {Highcharts, config} = nextProps || this.props;
-    if (!config.chart) {
-      config.chart = {};
-    }
-    config.chart.renderTo = this.chartEl;
-    this._instance = new Highcharts.chart(config);
-    return this._instance;
-  }
-
-  // "update" by destroying then recreating the chart instance
-  _update(nextProps) { // redraw
-    this._destroy();
-    this._create(nextProps);
-    return this._instance;
-  }
-
-  _destroy() {
-    if (this._instance) {
-      this._instance.destroy();
-      this._instance = null;
-    }
-  }
-
   componentDidMount() {
-    this._create();
+    this.props.service.create(this.props.config, this.chartEl);
   }
 
   componentWillUpdate(nextProps) {
-    this._update(nextProps);
+    this.props.service.update(nextProps.config, this.chartEl);
   }
 
   componentWillUnmount() {
-    this._destroy();
+    this.props.service.destroy();
   }
 
   render() {
@@ -56,8 +27,14 @@ class AbstractChart extends PureComponent {
 }
 
 AbstractChart.propTypes = {
-  Highcharts: PropTypes.object.isRequired,  // supplied from Provider
+  config: PropTypes.object.isRequired,
+  service: PropTypes.object.isRequired,
+
+  Highcharts: PropTypes.object.isRequired,  // this is available, but use the service instead
 };
+
+export {AbstractChart as __AbstractChart};  // for testing
+
 
 const ConnectedChart = withHighcharts(AbstractChart);
 

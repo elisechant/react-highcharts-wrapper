@@ -11,8 +11,8 @@ install:
   - yarn install
 notifications:
   email: false
-before_script:
-  - yarn list
+#before_script:
+#  - yarn list
 script:
   - yarn run build
   - yarn run test:ci

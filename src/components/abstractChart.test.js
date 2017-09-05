@@ -1,47 +1,126 @@
 
 /* global it, describe */
 import React from 'react';
-import expect from 'expect';
-import {shallow} from 'enzyme';
+import expect, {spyOn} from 'expect';
+import {shallow, mount} from 'enzyme';
 
-import Highcharts from 'highcharts';
-
-import AbstractChart from './abstractChart';
+import AbstractChart, {__AbstractChart} from './abstractChart';
 
 
-function copyProps(src, target) {
-  const props = Object.getOwnPropertyNames(src)
-    .filter(prop => typeof target[prop] === 'undefined')
-    .map(prop => Object.getOwnPropertyDescriptor(src, prop));
-  Object.defineProperties(target, props);
-}
+/**
+ * Test wrapped Component (with withHighcharts)
+ * This environment has props and context.
+ */
 
-import {JSDOM} from 'jsdom';
+describe('(Component) AbstractChart enhanced - abstractChart', () => {
 
-const jsdom = new JSDOM('<!doctype html><html><body></body></html>');
-const {window} = jsdom;
-global.window = window;
-global.document = window.document;
-global.navigator = {
-  userAgent: 'node.js'
-};
-copyProps(window, global);
-
-
-describe('(Component) AbstractChart - abstractChart', () => {
-
-  describe('expected attributes', () => {
-
-    const Actual = shallow(<AbstractChart config={{chart:{type:'pie'}}} />, {
-      context:  {
-        Highcharts: Highcharts,
+  it('should render a component without crashing', () => {
+    const wrapper = shallow(<AbstractChart
+      config={{chart:{type:'pie'}}}
+      service={{
+        create: () => {},
+        update: () => {},
+        destroy: () => {}
+      }}
+    />, { // mock the interface from HighchartsProvider
+      context: {
+        Highcharts: {
+          chart: () => {}
+        }
       }
     });
 
-    it('should render a component without crashing', () => {
-      expect(Actual.instance()).toExist();
-    });
+    expect(wrapper.instance()).toExist();
+  });
 
+});
+
+
+/**
+ * Test raw Component
+ * This environment has only props.
+ */
+
+describe('(Component) AbstractChart enhanced - abstractChart', () => {
+
+  it('should register an element ref to render the chart', () => {
+    const mockService = {  // mock service
+      create: () => {},
+      update: () => {},
+      destroy: () => {}
+    };
+    const wrapper = mount(<__AbstractChart
+      config={{chart:{type:'pie'}}}
+      service={mockService}
+      Highcharts={{ // mock Highcharts
+        chart: function() {}
+      }}
+    />);
+    expect(wrapper.instance().chartEl).toExist();
+  });
+
+  it('should create when componentDidMount', () => {
+    const mockService = {  // mock service
+      create: () => {},
+      update: () => {},
+      destroy: () => {}
+    };
+
+    const spy = spyOn(mockService, 'create');
+
+    const wrapper = mount(<__AbstractChart
+      config={{chart:{type:'pie'}}}
+      service={mockService}
+      Highcharts={{ // mock Highcharts
+        chart: function() {}
+      }}
+    />);
+
+    expect(spy).toHaveBeenCalled();
+  });
+
+  it('should update when componentWillUpdate', () => {
+    const mockService = {  // mock service
+      create: () => {},
+      update: () => {},
+      destroy: () => {}
+    };
+
+    const spy = spyOn(mockService, 'update');
+
+    const wrapper = mount(<__AbstractChart
+      config={{chart:{type:'pie'}}}
+      service={mockService}
+      Highcharts={{ // mock Highcharts
+        chart: function() {}
+      }}
+    />);
+
+    wrapper.instance().forceUpdate();
+
+    expect(spy).toHaveBeenCalled();
+  });
+
+  it('should destroy when componentWillUnmount', () => {
+    const mockService = {  // mock service
+      create: () => {},
+      update: () => {},
+      destroy: () => {}
+    };
+
+    const spy = spyOn(mockService, 'destroy');
+
+    const wrapper = mount(<__AbstractChart
+      config={{chart:{type:'pie'}}}
+      service={mockService}
+      Highcharts={{ // mock Highcharts
+        chart: function() {}
+      }}
+    />);
+
+    wrapper.unmount();
+
+    expect(spy).toHaveBeenCalled();
   });
 
 });

@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import makeHigchartsService from './../services/highcharts';
+import makeHigchartsService from './../services/highchartsInterface';
 
 
 const withHighcharts = Composed => {

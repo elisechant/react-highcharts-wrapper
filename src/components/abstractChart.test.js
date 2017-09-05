@@ -7,7 +7,7 @@ import AbstractChart, {__AbstractChart} from './abstractChart';
 
 
 /**
- * These tests are for AbstractChart wrapped by withHighcharts
+ * These tests are for AbstractChart wrapped by withHighcharts HOC.
  * Environment has props and context.
  */
 describe('(Component) AbstractChart enhanced - abstractChart', () => {
@@ -34,7 +34,7 @@ describe('(Component) AbstractChart enhanced - abstractChart', () => {
 
 
 /**
- * These tests are for AbstractChart in isolation
+ * These tests are for AbstractChart without the HOC enhancement.
  * Environment has props only.
  */
 describe('(Component) AbstractChart - abstractChart', () => {

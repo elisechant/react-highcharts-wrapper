@@ -3,11 +3,11 @@
 // this file exists purely for development convenience
 // ---
 
-//
 // import React from 'react';
 // import ReactDOM from 'react-dom';
 // import HighchartsProvider from "./providers/highchartsProvider";
 // import AbstractChart from './components/abstractChart';
+//
 //
 // const ExampleApp = () => {
 //   return (

@@ -15,8 +15,7 @@ const StorybookDecorator = (story) => (
 addDecorator(StorybookDecorator);
 
 function loadStories() {
-  context.keys().forEach((a,b,c) => console.log('hello', a,b,c))
-  context.keys().forEach(context)
+  context.keys().forEach(context);
 }
 
 configure(loadStories, module);

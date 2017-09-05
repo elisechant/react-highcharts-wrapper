@@ -8,7 +8,7 @@ const makeHighchartsApi = Highcharts => {
       config.chart = {};
     }
     config.chart.renderTo = el;
-    this._instance = new Highcharts.chart(config);
+    _instance = new Highcharts.chart(config);
     return _instance;
   };
 

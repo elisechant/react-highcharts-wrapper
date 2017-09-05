@@ -1,6 +1,6 @@
 {
   "name": "react-highcharts-wrapper",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "A React wrapper for building Highcharts components.",
   "main": "lib/ReactHighchartsWrapper.js",
   "license": "MIT",
@@ -35,7 +35,7 @@
     "prebuild:lib": "yarn clean:lib",
     "build:lib": "babel src/ --out-dir lib --source-maps --ignore test.js,example/,index.js",
     "test": "react-scripts test --env=jsdom",
-    "test:ci": "yarn test -- --coverage --runInBand && codecov",
+    "test:ci": "yarn test -- --coverage --runInBand",
     "eject": "react-scripts eject",
     "prepublishOnly": "yarn build:lib",
     "start:storybook": "yarn run build:lib && start-storybook -p 9009 -c examples/.storybook -s examples/public",

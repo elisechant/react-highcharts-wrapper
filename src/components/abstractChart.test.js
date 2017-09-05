@@ -3,63 +3,98 @@
 import React from 'react';
 import expect, {createSpy, spyOn, isSpy} from 'expect';
 import {mount, shallow} from 'enzyme';
-import AbstractChart, {AbstractChart as _AbstractChart} from './abstractChart';
+import AbstractChart, {__AbstractChart} from './abstractChart';
 
 
 /**
- * These tests are for AbstractChart wrapped by withHighcharts
+ * These tests are for AbstractChart wrapped by withHighcharts HOC.
+ * Environment has props and context.
  */
 describe('(Component) AbstractChart enhanced - abstractChart', () => {
 
   it('should render a component without crashing', () => {
-    const wrapper = shallow(<AbstractChart config={{chart:{type:'pie'}}} />, {
+    const wrapper = shallow(<AbstractChart
+      config={{chart:{type:'pie'}}}
+      service={{
+        create: () => {},
+        update: () => {},
+        destroy: () => {},
+      }}
+    />, {  // provide the interface from HighchartsProvider
       context:  {
-        Highcharts: {},
+        Highcharts: {
+          chart: function() {}
+        },
       }
     });
     expect(wrapper.instance()).toExist();
-  });
-
-  it.skip('should render with correct props', () => {
-
   });
 
 });
 
 
 /**
- * These tests are for AbstractChart in isolation
+ * These tests are for AbstractChart without the HOC enhancement.
+ * Environment has props only.
  */
 describe('(Component) AbstractChart - abstractChart', () => {
 
-  it('should call self._create when lifecycle componentDidMount is run', () => {
-    const spy = spyOn(_AbstractChart.prototype, '_create');
+  it('should create when lifecycle componentDidMount is run', () => {
+    const mockService = {
+      create: () => {},
+    };
 
-    const wrapper = mount(<_AbstractChart config={{chart:{type:'pie'}}} Highcharts={{ // mock Highcharts
-      chart: function() {}
-    }} />);
+    const spy = spyOn(mockService, 'create');
+
+    mount(<__AbstractChart
+      config={{chart:{type:'pie'}}}
+      Highcharts={{ // mock Highcharts
+        chart: function() {}
+      }}
+      service={mockService}
+    />);
 
     expect(spy).toHaveBeenCalled();
   });
 
-  it('should call self._update when lifecycle componentWillUpdate is run', () => {
-    const spy = spyOn(_AbstractChart.prototype, '_update');
+  it('should update when lifecycle componentWillUpdate is run', () => {
+    const mockService = {
+      create: () => {},
+      update: () => {},
+      destroy: () => {},
+    };
 
-    const wrapper = mount(<_AbstractChart config={{chart:{type:'pie'}}} Highcharts={{ // mock Highcharts
-      chart: function() {}
-    }} />);
+    const spy = spyOn(mockService, 'update');
+
+    const wrapper = mount(<__AbstractChart
+      config={{chart:{type:'pie'}}}
+      Highcharts={{ // mock Highcharts
+        chart: function() {}
+      }}
+      service={mockService}
+    />);
 
     wrapper.instance().forceUpdate();
 
     expect(spy).toHaveBeenCalled();
   });
 
-  it('should call self._destroy when lifecycle componentWillUnmount is run', () => {
-    const spy = spyOn(_AbstractChart.prototype, '_update');
+  it('should destroy when lifecycle componentWillUnmount is run', () => {
+    const mockService = {
+      create: () => {},
+      update: () => {},
+      destroy: () => {},
+    };
 
-    const wrapper = mount(<_AbstractChart config={{chart:{type:'pie'}}} Highcharts={{ // mock Highcharts
-      chart: function() {}
-    }} />);
+    const spy = spyOn(mockService, 'destroy');
+
+    const wrapper = mount(<__AbstractChart
+      config={{chart:{type:'pie'}}}
+      Highcharts={{ // mock Highcharts
+        chart: function() {}
+      }}
+      service={mockService}
+    />);
 
     wrapper.unmount();
 

@@ -5,11 +5,11 @@ import {storiesOf} from '@storybook/react';
 import {HighchartsProvider, AbstractChart} from 'react-highcharts-wrapper';
 
 
-storiesOf('Basic', module)
+storiesOf('Simple', module)
   .addDecorator(story => (
     <HighchartsProvider>{story()}</HighchartsProvider>
   ))
-  .add('basic chart config', () =>
+  .add('basic chart', () =>
     <AbstractChart config={{
       chart: {
         type: 'pie'

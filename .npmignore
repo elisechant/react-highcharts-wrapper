@@ -18,4 +18,9 @@ build/
 coverage/
 examples/
 yarn.lock
-
+firebase.json
+.babelrc
+test/
+.env
+.firebaserc
+storybook-static/

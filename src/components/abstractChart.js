@@ -10,33 +10,61 @@ class AbstractChart extends PureComponent {
   constructor(props) {
     super(props);
     this._instance = null;
+    this._create = this._create.bind(this);
+    this._update = this._update.bind(this);
+    this._destroy = this._destroy.bind(this);
+  }
+
+  _create(nextProps = null) {
+    const {Highcharts, config} = nextProps || this.props;
+    if (!config.chart) {
+      config.chart = {};
+    }
+    config.chart.renderTo = this.chartEl;
+
+    this._instance = new Highcharts.chart(config);
+    return this._instance;
+  }
+
+  // "update" by destroying then recreating the chart instance
+  _update(nextProps) { // redraw
+    this._destroy();
+    this._create(nextProps);
+    return this._instance;
+  }
+
+  _destroy() {
+    if (this._instance) {
+      this._instance.destroy();
+      this._instance = null;
+    }
   }
 
   componentDidMount() {
-    this.props.service.create(this.props.config, this.chartEl);
+    this._create();
   }
 
   componentWillUpdate(nextProps) {
-    this.props.service.update(nextProps);
+    this._update(nextProps);
   }
 
   componentWillUnmount() {
-    this.props.service.destroy();
+    this._destroy();
   }
 
   render() {
-    return <div ref={el => this.chartEl = el} />
+    return (
+      <div ref={el => this.chartEl = el} />
+    )
   }
 }
 
 AbstractChart.propTypes = {
-  service: PropTypes.object.isRequired,
+  Highcharts: PropTypes.object.isRequired,  // supplied from Provider
   config: PropTypes.object.isRequired,
-
-  Highcharts: PropTypes.object, // don't use this if possible, but it should exist
 };
 
-export {AbstractChart as __AbstractChart}; // for testing
+export {AbstractChart}; // for testing
 
 
 const ConnectedChart = withHighcharts(AbstractChart);

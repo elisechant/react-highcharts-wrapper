@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 
 const withHighcharts = Composed => {
-
   const C = (props, context) => {
 
     if (typeof context.Highcharts !== 'object' || !context.Highcharts) {
@@ -18,7 +17,7 @@ const withHighcharts = Composed => {
     return <Composed {...newProps} />
   };
 
-  C.contextTypes = {
+  C.contextTypes = {  // todo - think this is unnecessary now because of the error clause
     Highcharts: PropTypes.object,
   };
 

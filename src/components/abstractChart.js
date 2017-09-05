@@ -10,9 +10,6 @@ class AbstractChart extends PureComponent {
   constructor(props) {
     super(props);
     this._instance = null;
-    this._create = this._create.bind(this);
-    this._update = this._update.bind(this);
-    this._destroy = this._destroy.bind(this);
   }
 
   _create(nextProps = null) {
@@ -21,7 +18,6 @@ class AbstractChart extends PureComponent {
       config.chart = {};
     }
     config.chart.renderTo = this.chartEl;
-
     this._instance = new Highcharts.chart(config);
     return this._instance;
   }
@@ -61,11 +57,7 @@ class AbstractChart extends PureComponent {
 
 AbstractChart.propTypes = {
   Highcharts: PropTypes.object.isRequired,  // supplied from Provider
-  config: PropTypes.object.isRequired,
 };
-
-export {AbstractChart}; // for testing
-
 
 const ConnectedChart = withHighcharts(AbstractChart);
 

@@ -9,7 +9,10 @@
 
 A React wrapper for building Highcharts components.
 
-Provides the Highcharts primitive to your application the right way, and then render all of your React Highcharts components with Highchart's config API.   
+1. A helper component to wrap chart instantiation
+
+2. Optionally extend the Highcharts primitive *once* for the whole application
+
 
 ## TLDR
 
@@ -34,9 +37,15 @@ render() (
 ```
 
 
-## Who is this library for? 
+## Why 
 
-Anyone wanting to be productive with Highcharts in React.
+1. You want to be productive with Highcharts in React.
+
+2. You want to build Highcharts components using the [Highcharts Config API](http://api.highcharts.com/highcharts).
+
+3. You want a tiny library.
+
+4. You want a singular reference to the Highcharts Primitive, to do things like apply a Custom Theme or extend Highcharts for your whole application.
 
 
 ## Demo
@@ -83,7 +92,7 @@ Pitch site:
 ### 2. Wrap your app with `HighchartsProvider`.
 
 
-app.js
+**app.js**
 ```
 import {HighchartsProvider} from "react-highcharts-wrapper";
 
@@ -102,11 +111,10 @@ const App = () => {
 This will make Highcharts available to context.
 
 
-### 3. Build the chart components you need with `AbstractChart` 
-passing in a standard Highcharts configuration object. 
+### 3. Build the chart components you need with `AbstractChart` passing in a standard Highcharts configuration object. 
 
 
-components/myPieChart.js
+**components/myPieChart.js**
 ```
 import {AbstractChart} from 'react-highcharts-wrapper';
 
@@ -140,7 +148,7 @@ const MyPieChart = () => {
 ### 4. Consume the charts like any other component 
 
 
-components/myPage.js
+**components/myPage.js**
 ```
 import MyPieChart from './myPieChart';
 

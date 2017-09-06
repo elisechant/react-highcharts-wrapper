@@ -52,7 +52,7 @@ render() (
 
 Try it:
 
-[Open this repo in Codesandbox](https://codesandbox.io/s/20lmomm0n0)
+[Open this repo in Codesandbox](https://codesandbox.io/s/github/beestripes/react-highcharts-wrapper)
 
 
 Examples: 

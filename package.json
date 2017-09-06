@@ -1,6 +1,6 @@
 {
   "name": "react-highcharts-wrapper",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A React wrapper for building Highcharts components, that provides a singular reference to the Highcharts global.",
   "main": "lib/ReactHighchartsWrapper.js",
   "license": "MIT",
@@ -68,5 +68,10 @@
     "react-dom": ">=15",
     "react-scripts": "1.0.12",
     "react-test-renderer": "^15.6.1"
+  },
+  "jest": {
+    "collectCoverageFrom" : [
+      "src/**/*.{js,jsx}", "!**/node_modules/**", "!**/src/index.js"
+    ]
   }
 }

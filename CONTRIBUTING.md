@@ -19,4 +19,4 @@
 
 1. `nvm use`
 
-2. Add new widgets in a flat directory structure
+2. `yarn install` or `npm install`

@@ -16,7 +16,7 @@ A React wrapper for building Highcharts components.
 
 ## TLDR
 
-app.js
+**app.js**
 ```
 render() (
   <HighchartsProvider executeFuncs={[]}>  // [optional] array of functions to decorate window.Highcharts
@@ -25,7 +25,7 @@ render() (
 )
 ```
 
-chart.js
+**chart.js**
 ```
 render() (
   <AbstractChart config={{  // any Highcharts config object here

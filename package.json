@@ -1,7 +1,7 @@
 {
   "name": "react-highcharts-wrapper",
-  "version": "0.0.25",
-  "description": "A React wrapper for building Highcharts components, using the Provider pattern to supply Highcharts the right way.",
+  "version": "0.0.26",
+  "description": "A React wrapper for building Highcharts components, that provides a singular reference to the Highcharts global.",
   "main": "lib/ReactHighchartsWrapper.js",
   "license": "MIT",
   "repository": "git+https://github.com/beestripes/react-highcharts-wrapper.git",

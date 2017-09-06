@@ -9,9 +9,9 @@
 
 A React wrapper for building Highcharts components.
 
-1. A helper component to wrap chart instantiation
+1. A helper **Component** to wrap chart instantiation
 
-2. Optionally extend the Highcharts primitive *once* for the whole application
+2. A **Provider** that hosts a singular reference to the Highcharts global
 
 
 ## TLDR

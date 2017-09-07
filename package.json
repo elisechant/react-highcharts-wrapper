@@ -2,7 +2,8 @@
   "name": "react-highcharts-wrapper",
   "version": "1.0.1",
   "description": "A React wrapper for building Highcharts components, that provides a singular reference to the Highcharts global.",
-  "main": "lib/ReactHighchartsWrapper.js",
+  "main": "dist/react-highcharts-wrapper.cjs.js",
+  "module": "dist/react-highcharts-wrapper.es.js",
   "license": "MIT",
   "repository": "git+https://github.com/beestripes/react-highcharts-wrapper.git",
   "keywords": [
@@ -23,23 +24,25 @@
     "highcharts react",
     "react-component"
   ],
+  "files": [
+    "dist"
+  ],
   "author": "Elise Chant <elise.chant@gmail.com>",
   "bugs": {
     "url": "https://github.com/beestripes/react-highcharts-wrapper/issues"
   },
   "homepage": "https://react-highcharts-wrapper.firebaseapp.com",
   "scripts": {
-    "clean:lib": "rm -rf lib",
+    "clean:dist": "rm -rf dist",
     "start": "react-scripts start",
+    "start:storybook": "yarn build:dist && start-storybook -p 9009 -c examples/.storybook -s examples/public",
     "build": "react-scripts build",
-    "prebuild:lib": "yarn clean:lib",
-    "build:lib": "babel src/ --out-dir lib --source-maps --ignore test.js,example/,index.js",
+    "build:dist": "yarn run clean:dist && rollup -c --environment ROLLUP_BUILD:true",
+    "build:storybook": "yarn build:dist && yarn run build:dist && build-storybook -c examples/.storybook -s examples/public",
     "test": "react-scripts test --env=jsdom",
     "test:ci": "yarn test -- --coverage --runInBand",
     "eject": "react-scripts eject",
     "prepublishOnly": "yarn build:lib",
-    "start:storybook": "yarn run build:lib && start-storybook -p 9009 -c examples/.storybook -s examples/public",
-    "build:storybook": "yarn run build:lib && build-storybook -c examples/.storybook -s examples/public",
     "predeploy": "yarn build:storybook",
     "deploy": "firebase deploy"
   },
@@ -55,9 +58,10 @@
     "@storybook/addon-links": "^3.2.6",
     "@storybook/react": "^3.2.8",
     "babel-cli": "^6.26.0",
-    "babel-preset-es2015": "^6.24.1",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1",
+    "babel-preset-stage-3": "^6.24.1",
     "codecov": "^2.3.0",
     "enzyme": "^2.9.1",
     "expect": "^1.20.2",
@@ -67,11 +71,19 @@
     "react": ">=15",
     "react-dom": ">=15",
     "react-scripts": "1.0.12",
-    "react-test-renderer": "^15.6.1"
+    "react-test-renderer": "^15.6.1",
+    "rollup": "^0.49.2",
+    "rollup-plugin-alias": "^1.3.1",
+    "rollup-plugin-babel": "^3.0.2",
+    "rollup-plugin-commonjs": "^8.2.0",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-uglify": "^2.0.1"
   },
   "jest": {
-    "collectCoverageFrom" : [
-      "src/**/*.{js,jsx}", "!**/node_modules/**", "!**/src/index.js"
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!**/node_modules/**",
+      "!**/src/index.js"
     ]
   }
 }

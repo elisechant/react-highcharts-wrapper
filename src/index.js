@@ -120,7 +120,7 @@ const App = () => {
   return (
     <HighchartsProvider executeFuncs={[
       (Highcharts) => {
-        console.log(Highcharts)
+        console.log('Highcharts:', Highcharts)
       }
     ]}>
       <div>

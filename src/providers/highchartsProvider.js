@@ -1,7 +1,6 @@
 
 import {Component, Children} from 'react';
 import PropTypes from 'prop-types';
-import Highcharts from 'highcharts';
 
 
 class HighchartsProvider extends Component {
@@ -10,7 +9,7 @@ class HighchartsProvider extends Component {
   getChildContext() {
     const {executeFuncs} = this.props;
 
-    const _Highcharts = Highcharts;
+    const _Highcharts = require('highcharts');
 
     if (typeof executeFuncs !== 'undefined' && Array.isArray(executeFuncs) && executeFuncs.length) {
       executeFuncs.map(f => {

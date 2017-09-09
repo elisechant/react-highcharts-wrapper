@@ -1,7 +1,8 @@
 
 import React from 'react';
 
-import {AbstractChart} from 'react-highcharts-wrapper';
+import {AbstractChart} from './../../ReactHighchartsWrapper';
+
 
 const BarChart = () => (
   <AbstractChart config={{

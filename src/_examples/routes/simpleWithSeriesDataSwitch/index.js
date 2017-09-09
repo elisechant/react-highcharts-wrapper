@@ -1,8 +1,7 @@
 
 import React, {PureComponent} from 'react';
-import {storiesOf} from '@storybook/react';
+import {HighchartsProvider, AbstractChart} from './../../../ReactHighchartsWrapper';
 
-import {AbstractChart, HighchartsProvider} from 'react-highcharts-wrapper';
 
 
 class BarChartWithSeriesToggle extends PureComponent {
@@ -76,9 +75,12 @@ class BarChartWithSeriesToggle extends PureComponent {
   }
 }
 
-storiesOf('Simple', module)
-  .addDecorator(story => (
-    <HighchartsProvider>{story()}</HighchartsProvider>
-  ))
-  .add('switching series data', () => <BarChartWithSeriesToggle />)
-;
+const SimpleWithSeriesDataSwitch = () => {
+  return (
+    <HighchartsProvider>
+      <BarChartWithSeriesToggle />
+    </HighchartsProvider>
+  )
+};
+
+export default SimpleWithSeriesDataSwitch;

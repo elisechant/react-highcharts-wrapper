@@ -1,10 +1,9 @@
 
 import React from 'react';
-import {storiesOf} from '@storybook/react';
+import {HighchartsProvider} from './../../../ReactHighchartsWrapper';
 
-import {HighchartsProvider, AbstractChart} from 'react-highcharts-wrapper';
-
-import SimpleBarChart from './components/simpleBarChart';
+import SimpleBarChart from './../../components/simpleBarChart';
+import SimpleLineChart from './../../components/simpleLineChart';
 
 
 const setTheme = (Highcharts) => {
@@ -51,14 +50,17 @@ const setTheme = (Highcharts) => {
   return Highcharts;
 };
 
-
-storiesOf('Custom theme', module)
-  .addDecorator(story => (
+const CustomTheme = () => {
+  return (
     <HighchartsProvider executeFuncs={[
       setTheme
-    ]}>{story()}</HighchartsProvider>
-  ))
-  .add('simple chart', () =>
-    <SimpleBarChart />
+    ]}>
+      <div>
+        <SimpleBarChart />
+        <SimpleLineChart />
+      </div>
+    </HighchartsProvider>
   )
-;
+};
+
+export default CustomTheme;

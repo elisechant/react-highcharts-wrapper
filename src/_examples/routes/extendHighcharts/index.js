@@ -1,10 +1,8 @@
 
 import React from 'react';
-import {storiesOf} from '@storybook/react';
+import {HighchartsProvider} from './../../../ReactHighchartsWrapper';
 
-import {HighchartsProvider, AbstractChart} from 'react-highcharts-wrapper';
-
-import SimpleLineChart from './components/simpleLineChart';
+import SimpleLineChart from './../../components/simpleLineChart';
 
 
 const fixIssueWithLineCharts = (Highcharts) => {
@@ -20,13 +18,14 @@ const fixIssueWithLineCharts = (Highcharts) => {
   return Highcharts;
 };
 
-storiesOf('Extend Highcharts', module)
-  .addDecorator(story => (
-    <HighchartsProvider executeFuncs={[
+const ExtendHighcharts = () => {
+  return (
+    <HighchartsProvider  executeFuncs={[
       fixIssueWithLineCharts
-    ]}>{story()}</HighchartsProvider>
-  ))
-  .add('simple chart', () =>
-    <SimpleLineChart />
+    ]}>
+      <SimpleLineChart />
+    </HighchartsProvider>
   )
-;
+};
+
+export default ExtendHighcharts;

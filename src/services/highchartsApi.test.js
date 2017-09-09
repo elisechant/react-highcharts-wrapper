@@ -2,7 +2,7 @@
 /* global it, describe */
 import React from 'react';
 import expect, {spyOn} from 'expect';
-import runJsdom from './../../test/helpers/runJsdom';
+import runJsdom from './../../config/jest/helpers/runJsdom';
 
 import makeHighchartsApi from './highchartsApi';
 

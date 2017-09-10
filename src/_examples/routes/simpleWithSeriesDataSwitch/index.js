@@ -44,8 +44,6 @@ class BarChartWithSeriesToggle extends PureComponent {
   render() {
     return (
       <div>
-        <h1>Bar Chart with toggleable series</h1>
-
         <button onClick={this.toggleSeries.bind(this)}>Toggle series</button>
 
         <AbstractChart config={{
@@ -75,10 +73,13 @@ class BarChartWithSeriesToggle extends PureComponent {
   }
 }
 
-const SimpleWithSeriesDataSwitch = () => {
+const SimpleWithSeriesDataSwitch = ({title}) => {
   return (
     <HighchartsProvider>
-      <BarChartWithSeriesToggle />
+      <div>
+        <h2>{title}</h2>
+        <BarChartWithSeriesToggle />
+      </div>
     </HighchartsProvider>
   )
 };

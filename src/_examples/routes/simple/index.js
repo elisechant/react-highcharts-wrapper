@@ -5,10 +5,13 @@ import {HighchartsProvider} from './../../../ReactHighchartsWrapper';
 import BarChart from './barChart';
 
 
-const Simple = () => {
+const Simple = ({title}) => {
   return (
     <HighchartsProvider>
-      <BarChart />
+      <div>
+        <h2>{title}</h2>
+        <BarChart />
+      </div>
     </HighchartsProvider>
   )
 };

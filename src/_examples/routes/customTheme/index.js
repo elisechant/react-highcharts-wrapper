@@ -50,12 +50,13 @@ const setTheme = (Highcharts) => {
   return Highcharts;
 };
 
-const CustomTheme = () => {
+const CustomTheme = ({title}) => {
   return (
     <HighchartsProvider executeFuncs={[
       setTheme
     ]}>
       <div>
+        <h2>{title}</h2>
         <SimpleBarChart />
         <SimpleLineChart />
       </div>

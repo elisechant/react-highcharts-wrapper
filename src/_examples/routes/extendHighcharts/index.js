@@ -18,12 +18,15 @@ const fixIssueWithLineCharts = (Highcharts) => {
   return Highcharts;
 };
 
-const ExtendHighcharts = () => {
+const ExtendHighcharts = ({title}) => {
   return (
     <HighchartsProvider  executeFuncs={[
       fixIssueWithLineCharts
     ]}>
-      <SimpleLineChart />
+      <div>
+        <h2>{title}</h2>
+        <SimpleLineChart />
+      </div>
     </HighchartsProvider>
   )
 };

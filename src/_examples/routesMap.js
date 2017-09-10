@@ -10,27 +10,27 @@ import ExtendHighcharts from './routes/extendHighcharts';
 const routes = [
   {
     path: '/simple',
-    title: 'A simple chart can be rendered',
+    title: 'A chart can be rendered',
     exact: true,
-    main: () => <Simple />
+    main: (props) => <Simple {...props} />
   },
   {
     path: '/simple-switch-data',
-    title: 'A series can handle updated series',
+    title: 'A chart can be dynamically updated',
     exact: true,
-    main: () => <SimpleWithSeriesDataSwitch />
+    main: (props) => <SimpleWithSeriesDataSwitch {...props} />
   },
   {
     path: '/custom-theme',
     title: 'A custom theme can be applied',
     exact: true,
-    main: () => <CustomTheme />
+    main: (props) => <CustomTheme {...props} />
   },
   {
     path: '/extend-highcharts',
     title: 'A Highcharts instance can be extended',
     exact: true,
-    main: () => <ExtendHighcharts />
+    main: (props) => <ExtendHighcharts {...props} />
   },
 ];
 
